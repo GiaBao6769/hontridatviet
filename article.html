@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEMPLATE</title>
+    <link rel='stylesheet' href="stylesheet.css">
+    
+    <script src="https://kit.fontawesome.com/7c54b44e04.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav id="NAVBAR"></nav>
+
+<main>
+    <div id="SOURCE-SECTION">
+        <div id="AUTHORS">
+            
+        </div>
+        <br>
+        <p id="DATE"></p>
+        <p id="SOURCE"></p>
+
+    </div>
+    
+    <div id="CONTENT-SECTION">
+        <div id="TITLE-DIV">
+            <hr>
+            <h1 id="TITLE"></h1>
+            <hr>
+        </div>
+        <p id="DESC"></p>
+        <p id="BODY"></p>
+
+    </div>
+
+    <div id="HASHTAGS-SECTION">
+
+    </div>
+
+    
+    <hr>
+    <div id="BOTTOM-SECTION">
+        <button id="LIKE-BUTTON">
+            <i class="lni lni-thumbs-up-3"></i>
+            
+            <p>Like</p>
+        </button>
+
+        <button id="DISLIKE-BUTTON">
+            <i class="lni lni-thumbs-down-3"></i>
+            <p>Dislike</p>
+        </button>
+
+        <button id="COMMENT-BUTTON" onclick="showCommentSection()">
+            <i class="lni lni-comment-1"></i>
+            <p>Comment</p>
+        </button>
+
+        <button id="SHARE-BUTTON">
+            <i class="lni lni-share-1"></i>
+            <p>Share</p>
+        </button>
+    </div>
+    <hr>
+
+    <div id="COMMENT-SECTION" style="display: none;">
+        <div id="COMMENT-SECTION-INFO">
+            <div class="textWithIcon">
+                <i class="fa-regular fa-comments"></i>
+                <h2>Comment section</h2>
+            </div>
+        </div>
+
+
+        <div class="comment">
+            <img class="commentAvatar" alt="avatar" src="images/logo.jpg">
+            <div class="commentDiv">
+                <div class="commentInfo">
+                    <p class="commentor">Gia Bảo</p>
+                    <p class="commentDate">06/07/2009</p>
+                </div>
+                <p class="commentContetn">Comment section does not work for the time being since the server has not been established.</p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer id="FOOTER">
+
+
+</footer>
+
+</body>
+
+<script type='module' src="load_templates.js"></script>
+<script type='module' src="main.js"></script>
+
+<script type="module">
+    import {API_BASE} from "./preload.js"
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const newPath = window.location.pathname.replace("article.html", "forum.html");
+    if (!id) {
+        window.location.href = newPath;
+    }
+    const res = await fetch(`${API_BASE}/api/get-article/${id}`);
+    const article = await res.json();
+    if (!res.ok) {
+        window.location.href = newPath;
+    }
+    document.getElementById("TITLE").textContent = article.title;
+    document.getElementById("DESC").textContent = article.desc;
+    document.getElementById("DATE").textContent = article.uploadDate;
+    document.getElementById("BODY").textContent = article.body;
+
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="SOURCE-SECTION">
+    <div id="AUTHORS">
+        <p><b>Author:</b> Hoang Gia Bao</p>
+        <p><b>Editor:</b> Le Duc Hai</p>
+    </div>
+    <br>
+    <p id="DATE"><b>Date:</b> 06/07/2009</p>
+    <p id="SOURCE"><b>Source:</b> <a href="https://github.com/GiaBao6769">https://github.com/GiaBao6769</a></p>
+
+</div>
+<div id="CONTENT-SECTION">
+    <div id="TITLE-DIV">
+        <hr>
+        <h1 id="TITLE">THIS IS THE TITLE</h1>
+        <hr>
+    </div>
+
+
+    <p id="DESC">This is apparently the description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolorem animi excepturi quae saepe ratione minus neque suscipit vel commodi non quo, quam perferendis ipsa quibusdam iusto minima tempora. In.</p>
+
+    <h2>1. APPENDIX 1</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro maiores aliquid, rerum suscipit vitae illo enim delectus nostrum? Error suscipit consequatur vel molestias corporis. Iure quos officiis minima autem.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In blanditiis delectus sapiente architecto. Placeat facilis consequatur ipsum aliquam numquam a voluptatem? Eius, voluptate magni odio dolorem ad esse accusantium repellat.</p>
+
+    <div class="imgDiv">
+        <img src="images/temp3.png">
+        <p>This is the description of the above image</p>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur ipsam expedita assumenda est, quaerat sequi nesciunt vel eum, sunt quibusdam dicta dolor voluptas blanditiis quas alias ipsum nostrum facere ipsa.</p>
+    
+    <h2>2. APPENDIX 2</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro maiores aliquid, rerum suscipit vitae illo enim delectus nostrum? Error suscipit consequatur vel molestias corporis. Iure quos officiis minima autem.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In blanditiis delectus sapiente architecto. Placeat facilis consequatur ipsum aliquam numquam a voluptatem? Eius, voluptate magni odio dolorem ad esse accusantium repellat.</p>
+</div> -->

@@ -7,10 +7,53 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    
+    <form id="UPLOAD-FORM" method="POST">
+        <fieldset>
+            <!-- <%errors.forEach(error =>{%>
+                <p class="notice"><%= error %></p>
+            <%})%> -->
 
+            <legend>Create new article</legend>
+            <label for="title"><small>Title</small></label>
+            <input type="text" id="title" name="title" autocomplete="off">
+            <br>
+
+            <label for="desc"><small>Description</small></label>
+            <input type="text" id="desc" name="desc" autocomplete="off">
+            <br>
+
+            <label for="body"><small>Content</small></label>
+            <textarea name="body" id="body"></textarea> 
+            
+            <br>
+            <button>Upload</button>
+        </fieldset>
+    </form>
     
 </body>
+
+<script type='module'>
+
+import {API_BASE} from "./preload.js"
+
+document.getElementById("UPLOAD-FORM").onsubmit = async e => {
+  e.preventDefault();
+
+  const data = {
+    title: title.value,
+    desc: desc.value,
+    body: body.value
+  };
+
+  await fetch(`${API_BASE}/api/upload-article`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+};
+</script>
 
 
 </html>

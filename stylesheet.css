@@ -52,7 +52,7 @@ main{
     text-decoration-thickness: 1px; 
     text-underline-offset: 10px;  
 
-        font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 .head-desc p{
@@ -125,9 +125,13 @@ main{
 
 /* <!-----[NAVIGATION BAR]-----> */
 
+/* Hồn tri đất việt */
+
 #NAVBAR{
     background-color: var(--clr-main-light);
-    height: 3rem;
+    box-shadow: 0 0 16px rgb(125, 125, 125);
+
+    height: 3.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -147,7 +151,7 @@ main{
 }
 
 #NAVBAR #LOGOLINK #LOGO{
-    border-radius: 100%;
+    /* border-radius: 100%; */
     height: 90%;
     margin-left: 1rem;
 }
@@ -320,6 +324,12 @@ footer{
     text-decoration-style: solid;   
     text-decoration-thickness: 1px; 
     text-underline-offset: 10px; 
+}
+
+#FOOTERLOGOLINK img{
+    padding-right: var(--space-mid);
+    width: 100%;
+    max-width: 30rem;
 }
 
 .footerLinkDiv{
@@ -1001,6 +1011,12 @@ footer{
 }
 
 
+}
+
+@media(max-width: 450px){
+    #FOOTERLOGOLINK img{
+        padding-right: var(--space-small);
+    }
 }
 
 .searchContent{
