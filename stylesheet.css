@@ -29,6 +29,13 @@
     min-height: 100vh;
 } */
 
+
+/* TAG CLASSES */
+
+.hidden{
+    display: hidden;
+}
+
 main{
     min-height: 80vh;
 }
@@ -125,7 +132,6 @@ main{
 
 /* <!-----[NAVIGATION BAR]-----> */
 
-/* Hồn tri đất việt */
 
 #NAVBAR{
     background-color: var(--clr-main-light);
@@ -139,7 +145,6 @@ main{
     display: flex;
     justify-content: left;
     align-items: center;
-
     overflow: hidden;
     font-size: 1.2rem;
 }
@@ -156,24 +161,25 @@ main{
     margin-left: 1rem;
 }
 
-#NAV-ITEMS{
+
+.navList{
     display: flex;
-    width: 100%;
+    flex-grow: 1;
+    
     justify-content: space-evenly;
 }
 
 .navItem{
     display: inline-block;
-    padding: 1rem;
-}
-
-.navItem a{
     text-decoration: none;
     color: #000000;
 }
 
 
+
+
 .navItem::after{
+    
     content: "";
     width: 0%;
     height: 2px;
