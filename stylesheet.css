@@ -4,7 +4,7 @@
     --clr-bg: white;
     --clr-text: black;
     --clr-main: rgb(22, 83, 12);
-    --clr-main-light: rgb(192, 227, 188);
+    --clr-main-light: rgb(223, 243, 221);
     --clr-main-dark: rgb(23, 82, 16);
     
     --clr-light: white;
@@ -173,6 +173,7 @@ main{
     display: inline-block;
     text-decoration: none;
     color: #000000;
+    transition: 0.3s;
 }
 
 
@@ -186,12 +187,21 @@ main{
     margin: 0 auto;
     display: block;
     background-color: var(--clr-main);
+
+
     transition: 0.3s;
 }
 
 .navItem:hover::after{
     width: 100%;
 }
+
+
+/* .navItem:hover{
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-offset: 5px;
+} */
 
 
 /* <!-----[PROSPECT]-----> */
@@ -1022,8 +1032,10 @@ footer{
 @media(max-width: 450px){
     #FOOTERLOGOLINK img{
         padding-right: var(--space-small);
+        height: 80%;
     }
 }
+
 
 .searchContent{
     display: inline;
